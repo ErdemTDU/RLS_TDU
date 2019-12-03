@@ -1,3 +1,4 @@
+clear all; close all; clc;
 h = 0.5.^([0:4]);
 x = randn(1000,1);
 y = conv(x,h);
@@ -17,7 +18,7 @@ J = zeros(N-M,1);
 for n = M:N   
     
     X = x(n:-1:n-M+1);
-    [e,w, K, cov_matrix] = rekursive_methode(w, X,output_y,cov_matrix,n);
+    [e,w, K, cov_matrix] = Rekursive_Methode(w, X,output_y,cov_matrix,n);
     theta_speicher(n) = w(1); %Muss annaehern zu filter parameter h(:)
     theta_speicher(n+1) = w(2); %Muss annaehern zu filter parameter h(:)
     theta_speicher(n+2) = w(3); %Muss annaehern zu filter parameter h(:)
